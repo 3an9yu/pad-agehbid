@@ -1,5 +1,8 @@
 $(document).ready(function() {
 	function id_to_num(pad_id) {
+		if (!(/^[0-9]{9}$/.test(pad_id)) {
+			return "";  
+		}
 		var a = pad_id.charAt(0);
 		var b = pad_id.charAt(1);
 		var c = pad_id.charAt(2);
@@ -35,7 +38,7 @@ $(document).ready(function() {
 	}
 
 	$("#pad_id").change(function() {
-		var pad_num = id_to_num($("#pad_id").val().replace(/[, ]+/g, " ").trim());
+		var pad_num = id_to_num($("#pad_id").val().replace(/[, ]+/g, "").trim());
 		$("#pad_number").val(pad_num);
 	});
 
