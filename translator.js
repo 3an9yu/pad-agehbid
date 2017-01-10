@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	function id_to_num(pad_id) {
 		if (/^[0-9]{9}$/.test(pad_id)) {
-			if (parseInt(pad_id) >= 396534278) {
+			if (parseInt(pad_id) >= 0) {
 				var a = pad_id.charAt(0);
 				var b = pad_id.charAt(1);
 				var c = pad_id.charAt(2);
