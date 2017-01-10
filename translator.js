@@ -1,24 +1,19 @@
 $(document).ready(function() {
 	function id_to_num(pad_id) {
-		if (/^[0-9]{9}$/.test(pad_id)) {
-			var a = pad_id.charAt(0);
-			var b = pad_id.charAt(1);
-			var c = pad_id.charAt(2);
-			var d = pad_id.charAt(3);
-			var e = pad_id.charAt(4);
-			var f = pad_id.charAt(5);
-			var g = pad_id.charAt(6);
-			var h = pad_id.charAt(7);
-			var i = pad_id.charAt(8);
+		var a = pad_id.charAt(0);
+		var b = pad_id.charAt(1);
+		var c = pad_id.charAt(2);
+		var d = pad_id.charAt(3);
+		var e = pad_id.charAt(4);
+		var f = pad_id.charAt(5);
+		var g = pad_id.charAt(6);
+		var h = pad_id.charAt(7);
+		var i = pad_id.charAt(8);
 
-			var code = parseInt(a + g + e + h + b + d + i + f + c);
-			code -= 323795845;
+		var code = parseInt(a + g + e + h + b + d + i + f + c);
+		code -= 323795845;
 
-			return code.toString();
-		}
-		else {
-			return "";
-		}
+		return code.toString();
 	}
 
 	function num_to_id(pad_number) {
@@ -39,13 +34,24 @@ $(document).ready(function() {
 		return a + b + c + d + e + f + g + h + i;
 	}
 
-	$("#pad_id").change(function() {
-		var pad_num = id_to_num($("#pad_id").val().replace(/[, ]+/g, " ").trim());
-		$("#pad_number").val(pad_num);
+	var prevId = null;
+	var prevNum = null;
+
+	$("#pad_id").on('change input', function() {
+		var val = this.value;
+		if (val !== prevId) {
+			var pad_num = id_to_num(val.replace(/[, ]+/g, " ").trim());
+			$("#pad_number").val(pad_num);
+			prevId = this.value;
+		}
 	});
 
-	$("#pad_number").change(function() {
-		var pad_id = num_to_id($("#pad_number").val().replace(/[, ]+/g, " ").trim());
-		$("#pad_id").val(pad_id);
+	$("#pad_number").on('change input', function() {
+		var val = this.value;
+		if (val !== prevNum) {
+			var pad_id = num_to_id(val.replace(/[, ]+/g, " ").trim());
+			$("#pad_id").val(pad_id);
+			prevNum = this.num;
+		}
 	});
 });
