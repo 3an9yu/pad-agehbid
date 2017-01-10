@@ -40,7 +40,7 @@ $(document).ready(function() {
 	});
 
 	$("#pad_number").change(function() {
-		var pad_id = num_to_id($("#pad_number").val().replace(',',''))
+		var pad_id = num_to_id($("#pad_number").val().replace(',','')
 		$("#pad_id").val(pad_id);
 	});
 });
