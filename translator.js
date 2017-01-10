@@ -35,12 +35,12 @@ $(document).ready(function() {
 	}
 
 	$("#pad_id").change(function() {
-		var pad_num = id_to_num($("#pad_id").val().replace(',','')
+		var pad_num = id_to_num($("#pad_id").val().replace(/[, ]+/g, " ").trim();
 		$("#pad_number").val(pad_num);
 	});
 
 	$("#pad_number").change(function() {
-		var pad_id = num_to_id($("#pad_number").val().replace(',','')
+		var pad_id = num_to_id($("#pad_number").val().replace(/[, ]+/g, " ").trim();
 		$("#pad_id").val(pad_id);
 	});
 });
