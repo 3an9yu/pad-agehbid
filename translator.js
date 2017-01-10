@@ -25,21 +25,29 @@ $(document).ready(function() {
 	}
 
 	function num_to_id(pad_number) {
-		var num = parseInt(pad_number);
-		num += 323795845;
-		var num_str = num.toString();
+		if (!isNaN(pad_number)) {
+			var num = parseInt(pad_number);
+			if (num >= 0) {
+				num += 323795845;
+				var num_str = num.toString();
 
-		var a = num_str.charAt(0);
-		var g = num_str.charAt(1);
-		var e = num_str.charAt(2);
-		var h = num_str.charAt(3);
-		var b = num_str.charAt(4);
-		var d = num_str.charAt(5);
-		var i = num_str.charAt(6);
-		var f = num_str.charAt(7);
-		var c = num_str.charAt(8);
+				var a = num_str.charAt(0);
+				var g = num_str.charAt(1);
+				var e = num_str.charAt(2);
+				var h = num_str.charAt(3);
+				var b = num_str.charAt(4);
+				var d = num_str.charAt(5);
+				var i = num_str.charAt(6);
+				var f = num_str.charAt(7);
+				var c = num_str.charAt(8);
 
-		return a + b + c + d + e + f + g + h + i;
+				return a + b + c + d + e + f + g + h + i;
+			} else {
+				return "Invalid #";
+			}
+		} else {
+			return "Invalid #";
+		}
 	}
 
 	var prevId = null;
