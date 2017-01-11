@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	function id_to_num(pad_id) {
 		if (/^[0-9]{9}$/.test(pad_id)) {
-			if (parseInt(pad_id) >= 0) {
+			if (parseInt(pad_id) >= 396534278) {
 				var a = pad_id.charAt(0);
 				var b = pad_id.charAt(1);
 				var c = pad_id.charAt(2);
@@ -27,7 +27,7 @@ $(document).ready(function() {
 	function num_to_id(pad_number) {
 		if (!isNaN(pad_number)) {
 			var num = parseInt(pad_number);
-			if (num > 0) {
+			if (num >= 0) {
 				num += 323795845;
 				var num_str = num.toString();
 
@@ -68,6 +68,22 @@ $(document).ready(function() {
 			var pad_id = num_to_id(val.replace(/[, ]+/g, "").trim());
 			$("#pad_id").val(pad_id);
 			prevNum = this.num;
+		}
+	});
+
+	$("#plus").click(function() {
+		var prevNum_str = $("#pad_number").val();
+		var newNum = parseInt(prevNum_str) + 1;
+		$("#pad_number").val(newNum.toString());
+		$("#pad_number").trigger('change');
+	});
+
+	$("#minus").click(function() {
+		var prevNum_str = $("#pad_number").val();
+		var newNum = parseInt(prevNum_str) - 1;
+		if (newNum > 0) {
+			$("#pad_number").val(newNum.toString());
+			$("#pad_number").trigger('change');
 		}
 	});
 });
