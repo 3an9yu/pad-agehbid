@@ -27,7 +27,7 @@ $(document).ready(function() {
 	function num_to_id(pad_number) {
 		if (!isNaN(pad_number)) {
 			var num = parseInt(pad_number);
-			if (num >= 0) {
+			if (num > 0) {
 				num += 323795845;
 				var num_str = num.toString();
 
