@@ -54,20 +54,20 @@ $(document).ready(function() {
 	var prevNum = null;
 
 	$("#pad_id").on('change input', function() {
-		var val = this.value;
+		var val = this.value.replace(/\D/g, "").trim();
 		if (val !== prevId) {
-			var pad_num = id_to_num(val.replace(/\D/g, "").trim());
+			var pad_num = id_to_num(val);
 			$("#pad_number").val(pad_num);
-			prevId = this.value;
+			prevId = val;
 		}
 	});
 
 	$("#pad_number").on('change input', function() {
-		var val = this.value;
+		var val = this.value.replace(/\D/g, "").trim();
 		if (val !== prevNum) {
-			var pad_id = num_to_id(val.replace(/\D/g, "").trim());
+			var pad_id = num_to_id(val);
 			$("#pad_id").val(pad_id);
-			prevNum = this.num;
+			prevNum = val;
 		}
 	});
 
