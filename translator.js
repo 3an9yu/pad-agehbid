@@ -56,7 +56,7 @@ $(document).ready(function() {
 	$("#pad_id").on('change input', function() {
 		var val = this.value;
 		if (val !== prevId) {
-			var pad_num = id_to_num(val.replace(/[, ]+/g, "").trim());
+			var pad_num = id_to_num(val.replace(/\D/g, "").trim());
 			$("#pad_number").val(pad_num);
 			prevId = this.value;
 		}
@@ -65,7 +65,7 @@ $(document).ready(function() {
 	$("#pad_number").on('change input', function() {
 		var val = this.value;
 		if (val !== prevNum) {
-			var pad_id = num_to_id(val.replace(/[, ]+/g, "").trim());
+			var pad_id = num_to_id(val.replace(/\D/g, "").trim());
 			$("#pad_id").val(pad_id);
 			prevNum = this.num;
 		}
