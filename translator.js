@@ -50,6 +50,27 @@ $(document).ready(function() {
 		}
 	}
 
+	function old_group(pad_id) {
+		var num = parseInt(pad_id[2]);
+		if (num == 0 || num == 5) {
+			return "A";
+		} else if (num == 1 || num == 6) {
+			return "B";
+		} else if (num == 2 || num == 7) {
+			return "C";
+		} else if (num == 3 || num == 8) {
+			return "D";
+		} else if (num == 4 || num == 9) {
+			return "E";
+		} else {
+			return "_";
+		}
+	}
+
+	function new_group(pad_id) {
+		return (parseInt(pad_id) % 3).toString();
+	}
+
 	var prevId = null;
 	var prevNum = null;
 
@@ -59,6 +80,7 @@ $(document).ready(function() {
 			var pad_num = id_to_num(val);
 			$("#pad_number").val(pad_num);
 			prevId = val;
+			$("#pad_group").text("Group " + old_group(val) + " / " + new_group(val));
 		}
 	});
 
@@ -68,6 +90,7 @@ $(document).ready(function() {
 			var pad_id = num_to_id(val);
 			$("#pad_id").val(pad_id);
 			prevNum = val;
+			$("#pad_group").text("Group " + old_group(pad_id) + " / " + new_group(pad_id));
 		}
 	});
 
